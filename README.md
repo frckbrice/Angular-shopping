@@ -10,7 +10,7 @@ And demonstrate basic CRUD (Create, Read, Update, Delete) operations on products
   - *Components*: Various components for different parts of the storefront, like product listing, editing, and addition.
   - *Routing*: Implements Angular routing to navigate between different sections of the application.
   - *CRUD Operations*: Users can perform Create, Read, Update, and Delete operations on products.
-  - 
+    
 ## Getting Started
 ### Prerequisites
 Before you begin, ensure you have the following installed:
