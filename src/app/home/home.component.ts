@@ -81,7 +81,7 @@ export class HomeComponent {
 
   // get all products
   fetchProducts(page: number, perPage: number) {
-    this.productService.getProducts("http://localhost:3000/clothes", { page,perPage}).subscribe({
+    this.productService.getProducts("https://angular-shopping-backend.onrender.com/clothes", { page,perPage}).subscribe({
       next: (data: Products) => {
         console.log(data.items)
         this.products = data.items;
@@ -94,7 +94,7 @@ export class HomeComponent {
   }
   // update one product
   editProduct(product: Product, id: number) {
-    this.productService.updateProduct(`http://localhost:3000/clothes/${id}`, product).subscribe({
+    this.productService.updateProduct(`https://angular-shopping-backend.onrender.com/clothes/${id}`, product).subscribe({
       next: (data: Product) => {
         console.log(data)
         this.fetchProducts(0, this.rows);
@@ -107,7 +107,7 @@ export class HomeComponent {
   }
   // delete one product
   deleteProduct(id:number) {  
-    this.productService.deleteProduct(`http://localhost:3000/clothes/${id}`).subscribe({
+    this.productService.deleteProduct(`https://angular-shopping-backend.onrender.com/clothes/${id}`).subscribe({
       next: (data) => {
         console.log(data)
         this.fetchProducts(0, this.rows);
@@ -120,7 +120,7 @@ export class HomeComponent {
   }
   // add one product
   addProduct(product: Product) {
-    this.productService.addProduct("http://localhost:3000/clothes", product).subscribe({
+    this.productService.addProduct("https://angular-shopping-backend.onrender.com/clothes", product).subscribe({
       next: (data) => {
         console.log(data)
         this.fetchProducts(0, this.rows);
