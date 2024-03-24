@@ -1,0 +1,21 @@
+.form-wrapper {
+
+    .row {
+        span {
+            flex: 1;
+        }
+
+        input {
+            flex: 1;
+        }
+    }
+
+    .rating {
+        margin-top: 0.5rem;
+    }
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}

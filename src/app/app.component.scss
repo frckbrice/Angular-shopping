@@ -1,0 +1,8 @@
+.wrapper {
+    height: auto;
+    padding: 20px;
+    width: 100%;
+    // make the wrapper take the rest of the page
+    flex-grow: 1;
+    box-sizing: border-box;
+}
