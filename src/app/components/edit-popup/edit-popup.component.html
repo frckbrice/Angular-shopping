@@ -1,0 +1,60 @@
+
+<!-- <p-button (click)="showDialog()" icon="pi pi-external-link" label="Show"></p-button> -->
+<p-dialog 
+[header]="header" 
+[(visible)]="display" 
+[style]="{width: '50vw'}" 
+[modal]="true" 
+[closable]="false">
+
+    <div class="column gap-1 form-wrapper" [formGroup]="productForm">
+        <div class="row gap-05">
+            <span class="price-label">Name: </span>
+            <!-- <input type="text" [(ngModel)]="product.name"> -->
+            <input type="text" formControlName="name">
+        </div>
+
+        <div class="row gap-05">
+            <span class="price-label">Price: </span>
+            <!-- <input type="text" [(ngModel)]="product.price"> -->
+            <input type="text" formControlName="price">
+        </div>
+
+        <div class="row gap-05">
+            <span class="price-label">Image: </span>
+            <!-- <input type="text" [(ngModel)]="product.image"> -->
+            <input type="text" formControlName="image">
+        </div>
+
+        <!-- rating -->
+        <!-- since the use of ngModel and formGroup is not supported by angular, 0ne approach is to use standalone prop to let angular ignore this warning or prefere to add the prop formControlName="rating" to p-rating -->
+        <p-rating 
+        [(ngModel)]="product.rating" 
+        [ngModelOptions]="{standalone:true}"
+        [cancel]="false" 
+        class="rating"
+        ></p-rating>
+
+    </div>
+   <p-footer>
+
+    <button 
+        type="button" 
+        pButton 
+        icon="pi pi-check" 
+        (click)="onConfirm()" 
+        label=" Add"
+        [class.disabled]="!productForm.valid"
+    >
+    </button>
+
+    <button 
+        type="button" 
+        pButton icon="pi pi-times" 
+        (click)="onCancel()" 
+        label="cancel"
+        >
+    </button>
+
+   </p-footer>
+</p-dialog>
