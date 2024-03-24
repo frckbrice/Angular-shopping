@@ -13,7 +13,10 @@ export class ProductsService {
   getProducts(url: string, params: PaginationParams): Observable<Products> {
     return this.apiService.get<Products>(url, {
       params,
-      responseType: 'json'
+      responseType: 'json',
+      headers: {
+        'Access-Control-Allow-Origin': "*"
+      }
     })
   }
 

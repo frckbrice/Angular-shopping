@@ -20,8 +20,12 @@
 
 
     <!-- paginator -->
-    <p-paginator (onPageChange)="onPageChange($event)" [rows]="rows" [totalRecords]="totalRecords" [rowsPerPageOptions]="[5, 10, 15]" 
-    #paginator
+    <p-paginator 
+        (onPageChange)="onPageChange($event)" 
+        [rows]="rows" 
+        [totalRecords]="totalRecords" 
+        [rowsPerPageOptions]="[5, 10, 15]" 
+        #paginator
     ></p-paginator>
 </div>
 
