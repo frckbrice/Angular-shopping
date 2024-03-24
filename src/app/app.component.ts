@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { environment } from './environments/environment';
+// import { environment } from './environment';
+// import { environment } from './environment';
 
 @Component({
   selector: 'app-root',
@@ -11,5 +14,5 @@ import { FooterComponent } from './footer/footer.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'angular_Shopping-App';
+  title = environment.TITLE;
 }

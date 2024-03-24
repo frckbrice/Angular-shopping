@@ -5,7 +5,9 @@ import { Paginator, PaginatorModule } from 'primeng/paginator';
 import { ProductComponent } from '../components/product/product.component';
 import { CommonModule } from '@angular/common';
 import { EditPopupComponent } from '../components/edit-popup/edit-popup.component';
-import {ButtonModule} from 'primeng/button'
+import { ButtonModule } from 'primeng/button'
+import { environment } from '../environments/environment';
+// import { environment } from '../environment';
 
 @Component({
   selector: 'app-home',
@@ -81,7 +83,7 @@ export class HomeComponent {
 
   // get all products
   fetchProducts(page: number, perPage: number) {
-    this.productService.getProducts("https://angular-shopping-backend.onrender.com/clothes", { page,perPage}).subscribe({
+    this.productService.getProducts(`${environment.SERVER_API}/clothes`, { page,perPage}).subscribe({
       next: (data: Products) => {
         console.log(data.items)
         this.products = data.items;
@@ -94,7 +96,7 @@ export class HomeComponent {
   }
   // update one product
   editProduct(product: Product, id: number) {
-    this.productService.updateProduct(`https://angular-shopping-backend.onrender.com/clothes/${id}`, product).subscribe({
+    this.productService.updateProduct(`${environment.SERVER_API}/${id}`, product).subscribe({
       next: (data: Product) => {
         console.log(data)
         this.fetchProducts(0, this.rows);
@@ -107,7 +109,7 @@ export class HomeComponent {
   }
   // delete one product
   deleteProduct(id:number) {  
-    this.productService.deleteProduct(`https://angular-shopping-backend.onrender.com/clothes/${id}`).subscribe({
+    this.productService.deleteProduct(`${environment.SERVER_API}/clothes/${id}`).subscribe({
       next: (data) => {
         console.log(data)
         this.fetchProducts(0, this.rows);
@@ -120,7 +122,7 @@ export class HomeComponent {
   }
   // add one product
   addProduct(product: Product) {
-    this.productService.addProduct("https://angular-shopping-backend.onrender.com/clothes", product).subscribe({
+    this.productService.addProduct(`${environment.SERVER_API}/clothes`, product).subscribe({
       next: (data) => {
         console.log(data)
         this.fetchProducts(0, this.rows);
@@ -134,6 +136,6 @@ export class HomeComponent {
   // life cycle hook
   ngOnInit(){
     this.fetchProducts(0, this.rows);
+    // console.log(environment.API_KEY)
   }
-
 }
