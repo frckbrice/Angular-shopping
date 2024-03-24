@@ -26,10 +26,9 @@ Clone the repository:
 ## Command line steps
 git clone https://github.com/frckbrice/Angular-shopping-app.git
 ## Install dependencies:
-npm install
-Usage
-Run the development server:
-ng serve
+$ npm install   // install dependencies
+$ ng serve   // Run the development server:
+
 
 Open your browser and navigate to http://localhost:4200/ to see the app in action.
 
